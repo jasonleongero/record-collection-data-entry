@@ -1,0 +1,104 @@
+form {
+    margin-top: 2.5em;
+    
+    label {
+        position: relative;
+        top: 0.3em;
+        width: 15em;
+        float: left;
+    }
+    
+    input, select {
+        display: block;
+    }
+    
+    label, input, select {
+        margin: 0.25em 0;
+    }
+    
+    input[type="submit"] {
+        margin: 2.5em 0;
+    }
+    
+    input[type="checkbox"] {
+        position: relative;
+        top: 0.75em;
+        left: 0.1em;
+        transform: scale(1.5)
+    }
+}
+
+dt {
+    float: left;
+    clear: left;
+    width: 12em;
+    font-weight: bold;
+    
+    &::after {
+        content: " :";
+    }
+}
+
+dd {
+    padding: 0 0 0.25em 0;
+}
+
+.track-form, .format-form {
+    margin: 1em 0;
+    
+    &-number-field, &-duration-field, &-quantity-field {
+        width: 2.5em;
+    }
+    
+    &-title-field {
+        width: 25em;
+    }
+    
+    &-name-field {
+        width: 10em;
+    }
+    
+    input[type="text"], input[type="number"] {
+        display: inline-block;
+    }
+    
+    span {
+        font-weight: bold;
+    }
+    
+    input[type="submit"] {
+        margin: 1em 0 0 0;
+        display: inline-block;
+    }
+}
+
+.tracks-panel, .formats-panel, .release-details-panel, .images-panel {
+    border: 1px solid darkgray;
+    background: #F0F0F0;
+    padding: 1em 2em;
+    width: 60em;
+    margin: 2em 0;
+    border-radius: 0.5em;
+    
+    h2 {
+        margin-top: 0.5em;
+    }
+}
+
+.release-details-panel {
+    min-height: 175px;
+}
+
+.images-panel img {
+    border: 1px solid darkgray;
+}
+
+.primary-image {
+    float: right;
+    margin-top: 0.5em;
+    border: 1px solid darkgray;
+}
+
+#release-title {
+    margin: 0em 0 1.5em 0;
+}

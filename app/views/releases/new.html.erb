@@ -1,0 +1,37 @@
+<h1>Create New Release</h1>
+
+<%= form_for @release do |f| %>
+    <%= f.label :artist %>
+    <%= text_field_tag :artist_name, @artist.name, :readonly => true %>
+    
+    <%= f.label :master_release %>
+    <%= text_field_tag :master_release_title, @master_release.title, :readonly => true %>
+    
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    
+    <%= f.label :catalog_number %>
+    <%= f.text_field :catalog_number %>
+    
+    <%= f.label :release_year %>
+    <%= f.select :release_year, valid_years %>
+    
+    <%= f.label :release_month %>
+    <%= f.select :release_month, valid_months %>
+    
+    <%= f.label :release_day %>
+    <%= f.select :release_day, valid_days %>
+    
+    <%= f.label :country %>
+    <%= f.select :country_iso_code, @countries %>
+    
+    <%= f.label :record_label %>
+    <%= f.select :record_label_id, @record_labels %>
+    
+    <%= f.label :is_key %>
+    <%= f.check_box :is_key %>
+    
+    <%= f.hidden_field :master_release_id, value: @master_release.id %>
+    
+    <%= f.submit "Create Master Release" %>
+<% end %>

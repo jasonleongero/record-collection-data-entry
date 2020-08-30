@@ -1,0 +1,8 @@
+<h1>Create New Record Label</h1>
+
+<%= form_for @record_label do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    
+    <%= f.submit "Create Record Label" %>
+<% end %>

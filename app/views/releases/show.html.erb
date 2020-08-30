@@ -1,0 +1,73 @@
+<%
+  provide :breadcrumbs, (
+    '' + link_to('Artists', artists_path) +
+    ' &raquo ' + link_to(@artist.name, @artist) +
+    ' &raquo ' + link_to(@master_release.title, @master_release)
+  ).html_safe
+%>
+
+<h1 id="release-title"><%= @artist.name %> - <%= @release.title %></h1>
+
+<div class="release-details-panel">
+  <% if (!@primary_image.nil?) %>
+  <%= image_tag @primary_image.image_url, size: '150', class: 'primary-image' %>
+  <% end %>
+  <h2>Main Release Details</h2>
+  <dl>
+    <dt>Release Date</dt><dd><%= @release.release_date %></dd>
+    <dt>Catalog Number</dt><dd><%= @release.catalog_number %></dd>
+    <dt>Record Label</dt><dd><%= @release.record_label_name %></dd>
+    <dt>Country</dt><dd><%= @release.country_name %></dd>
+  </dl>
+</div>
+
+<div class="tracks-panel">
+  <h2>Tracks</h2>
+  <%= form_tag "/tracks?release_id=#{@release.id}", method: 'post', class: 'track-form' do %>
+    <div class="tracks-container">
+    <% @tracks.each do |track, index| %>
+      <div>
+      <%= text_field_tag "track_number[]", track.track_number, class: 'track-form-number-field' %>
+      <%= text_field_tag "track_title[]", track.title, class: 'track-form-title-field' %>
+      <%= number_field_tag "track_minutes[]", track.minutes, class: 'track-form-duration-field' %>
+      <span>:</span>
+      <%= number_field_tag "track_seconds[]", track.seconds, class: 'track-form-duration-field' %>
+      <%= render 'list_controls' %>
+      </div>
+    <% end %>
+    </div>
+    <%= submit_tag 'Submit' %>
+    <button class="list-controls add-row">Add Track</button>
+  <% end %>
+</div>
+
+<div class="formats-panel">
+  <h2>Formats</h2>
+  <%= form_tag "/formats?release_id=#{@release.id}", method: 'post', class: 'format-form' do %>
+    <div class="formats-container">
+    <% @formats.each do |format, index| %>
+      <div>
+        <%= text_field_tag "format_name[]", format.format_name, class: 'format-form-name-field' %>
+        <%= number_field_tag "format_quantity[]", format.quantity, class: 'format-form-quantity-field' %>
+        <%= render 'list_controls' %>
+      </div>
+    <% end %>
+    </div>
+    <%= submit_tag 'Submit' %>
+    <button class="list-controls add-row">Add Format</button>
+  <% end %>
+</div>
+  
+<div class="images-panel">
+  <h2>Images</h2>
+  <div>
+    <% @images.each do |image| %>
+      <%= image_tag image.image_url, size: '175' %>
+    <% end %>
+  </div>
+  <h3>Add New Image</h3>
+  <%= form_tag "/images?release_id=#{@release.id}", method: 'post', class: 'format-form', enctype: 'multipart/form-data' do %>
+    <%= file_field(:post, :image, accept: 'image/png,image/gif,image/jpeg') %>
+    <%= submit_tag 'Submit' %>
+  <% end %>
+</div>

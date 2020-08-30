@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <% @attributes.each do |attribute| %>
+    <th><%= attribute[:hr_name] %></th>
+    <% end %>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% if @entities.length > 0 %>
+  <% @entities.each do |entity| %>
+  <tr>
+    <% @attributes.each do |attribute| %>
+    <td><%= conditionally_link entity, attribute %></td>
+    <% end %>
+    <td><%= link_to 'Edit', [:edit, entity] %></td>
+    <td><%= link_to 'Delete', entity, method: :delete, data: { confirm: 'You sure?' } %></td>
+  </tr>
+  <% end %>
+  <% else %>
+  <tr>
+    <td class="no-results" colspan="<%= @attributes.length + 2 %>">No Results</td>
+  </tr>
+  <% end %>
+</table>

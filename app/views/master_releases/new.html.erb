@@ -1,0 +1,12 @@
+<h1>Create New Master Release</h1>
+
+<%= form_for @master_release do |f| %>
+    <%= f.label :artist %>
+    <%= text_field_tag :artist_name, @artist.name, :readonly => true %>
+  
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    
+    <%= f.submit "Create Master Release" %>
+<% end %>
+

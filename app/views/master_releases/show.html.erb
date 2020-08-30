@@ -1,0 +1,14 @@
+<%
+  provide :breadcrumbs, (
+    '' + link_to("Artists", artists_path) +
+    ' &raquo ' + link_to(@artist.name, @artist)
+  ).html_safe
+%>
+
+<h1><%= @artist.name %> - <%= @master_release.title %></h1>
+
+<h2>Releases</h2>
+
+<%= render 'layouts/item_table' %>
+
+<%= link_to 'Create New Release', new_release_path(master_release_id: @master_release.id) %>

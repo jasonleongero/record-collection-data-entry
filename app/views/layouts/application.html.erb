@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecordCollectionDataEntry</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+        <div class="site-title"><i class="fa fa-music"></i>&nbsp;&nbsp;Record Collection Database</div>
+        <div class="breadcrumbs">Navigate To: <%= yield :breadcrumbs %></div>
+    </header>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </body>
+</html>

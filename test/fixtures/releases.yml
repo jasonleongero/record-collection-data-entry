@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  release_year: 
+  release_month: 
+  release_day: 
+  title: MyString
+  catalog_number: MyString
+  country_iso_code: MyString
+  record_label_id: 
+  is_key: false
+  master_release_id: 
+
+two:
+  release_year: 
+  release_month: 
+  release_day: 
+  title: MyString
+  catalog_number: MyString
+  country_iso_code: MyString
+  record_label_id: 
+  is_key: false
+  master_release_id: 
